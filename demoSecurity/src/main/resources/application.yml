@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: securityDemo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/sbs-demo?userUnicode=true&characterEncoding=UTF8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+#    schema: classpath:sbs-demo.sql
+  thymeleaf:
+    cache: false
