@@ -1,5 +1,11 @@
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 10800s
+    multipart:
+      max-file-size: 102400Mb
+      max-request-size: 102400Mb
 spring:
   application:
     name: securityDemo
@@ -9,6 +15,17 @@ spring:
     password: 123456
     url: jdbc:mysql://localhost:3306/sbs-demo?userUnicode=true&characterEncoding=UTF8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
-#    schema: classpath:sbs-demo.sql
+  #    schema: classpath:sbs-demo.sql
   thymeleaf:
     cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.example.demo.entity
+
+
+logging:
+  config: classpath:logback.xml

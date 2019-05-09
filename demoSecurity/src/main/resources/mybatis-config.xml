@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--&lt;!&ndash; 打开延迟加载的开关 &ndash;&gt;-->
+        <!--<setting name="lazyLoadingEnabled" value="true"/>-->
+        <!--&lt;!&ndash; 将积极加载改为消极加载，即延迟加载 &ndash;&gt;-->
+        <!--<setting name="aggressiveLazyLoading" value="false"/>-->
+        <!-- 全局映射器启用缓存 -->
+        <!--<setting name="cacheEnabled" value="true" />-->
+        <!--设置mybatis映射模式partial,full,none,默认partial除嵌套不自动-->
+        <setting name="autoMappingBehavior" value="FULL"/>
+        <!--开启增加返回主键-->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!--是否允许查询出来的字段为空时设值-->
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+    <!--<typeAliases>-->
+    <!--<typeAlias type="com.hy.vo.PageDataVo" alias="pdv"/>-->
+    <!--<typeAlias type="com.hy.vo.PageVo" alias="pv"/>-->
+    <!--</typeAliases>-->
+    <plugins>
+        <!-- com.github.pagehelper为PageHelper类所在包名 -->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 设置数据库类型Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 -->
+            <property name="dialect" value="sqlServer"/>
+        </plugin>
+    </plugins>
+
+</configuration>
