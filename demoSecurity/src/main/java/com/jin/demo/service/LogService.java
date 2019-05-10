@@ -7,7 +7,7 @@ import java.util.List;
  * (Log)表服务接口
  *
  * @author makejava
- * @since 2019-05-01 15:17:57
+ * @since 2019-05-10 16:58:35
  */
 public interface LogService {
 

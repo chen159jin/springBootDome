@@ -11,14 +11,14 @@ import lombok.Builder;
  * (Log)实体类
  *
  * @author makejava
- * @since 2019-05-01 15:17:57
+ * @since 2019-05-10 16:58:35
  */
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Log implements Serializable {
-    private static final long serialVersionUID = -57876888158172694L;
+    private static final long serialVersionUID = 150280704516531069L;
     /**日志ID*/
     private Long id;
     /**操作用户*/

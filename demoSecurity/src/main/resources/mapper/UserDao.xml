@@ -3,10 +3,10 @@
 <mapper namespace="com.jin.demo.dao.UserDao">
 
     <resultMap type="com.jin.demo.entity.User" id="UserMap">
-        <result property="userId" column="USER_ID" jdbcType="LONG INTEGER"/>
+        <result property="userId" column="USER_ID" jdbcType="BIGINT"/>
         <result property="username" column="USERNAME" jdbcType="VARCHAR"/>
         <result property="password" column="PASSWORD" jdbcType="VARCHAR"/>
-        <result property="deptId" column="DEPT_ID" jdbcType="LONG INTEGER"/>
+        <result property="deptId" column="DEPT_ID" jdbcType="BIGINT"/>
         <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
         <result property="mobile" column="MOBILE" jdbcType="VARCHAR"/>
         <result property="status" column="STATUS" jdbcType="VARCHAR"/>

@@ -3,14 +3,14 @@
 <mapper namespace="com.jin.demo.dao.MenuDao">
 
     <resultMap type="com.jin.demo.entity.Menu" id="MenuMap">
-        <result property="menuId" column="MENU_ID" jdbcType="LONG INTEGER"/>
-        <result property="parentId" column="PARENT_ID" jdbcType="LONG INTEGER"/>
+        <result property="menuId" column="MENU_ID" jdbcType="BIGINT"/>
+        <result property="parentId" column="PARENT_ID" jdbcType="BIGINT"/>
         <result property="menuName" column="MENU_NAME" jdbcType="VARCHAR"/>
         <result property="url" column="URL" jdbcType="VARCHAR"/>
         <result property="perms" column="PERMS" jdbcType="VARCHAR"/>
         <result property="icon" column="ICON" jdbcType="VARCHAR"/>
         <result property="type" column="TYPE" jdbcType="VARCHAR"/>
-        <result property="orderNum" column="ORDER_NUM" jdbcType="LONG INTEGER"/>
+        <result property="orderNum" column="ORDER_NUM" jdbcType="BIGINT"/>
         <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
         <result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP"/>
     </resultMap>

@@ -15,7 +15,7 @@ import java.util.List;
  * (Menu)表控制层
  *
  * @author makejava
- * @since 2019-05-01 15:17:57
+ * @since 2019-05-10 16:58:35
  */
 @Controller
 @RequestMapping("menu")
@@ -32,7 +32,7 @@ public class MenuController {
      */
     @RequestMapping("/index")
     public String index(Model model) {
-        return "/menu";
+        return "menu";
     }
     /**
      * 通过主键查询单条数据

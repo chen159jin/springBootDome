@@ -3,7 +3,7 @@
 <mapper namespace="com.jin.demo.dao.RoleDao">
 
     <resultMap type="com.jin.demo.entity.Role" id="RoleMap">
-        <result property="roleId" column="ROLE_ID" jdbcType="LONG INTEGER"/>
+        <result property="roleId" column="ROLE_ID" jdbcType="BIGINT"/>
         <result property="roleName" column="ROLE_NAME" jdbcType="VARCHAR"/>
         <result property="remark" column="REMARK" jdbcType="VARCHAR"/>
         <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>

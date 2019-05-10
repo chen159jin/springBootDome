@@ -15,7 +15,7 @@ import java.util.List;
  * (Role)表控制层
  *
  * @author makejava
- * @since 2019-05-01 15:17:58
+ * @since 2019-05-10 16:58:34
  */
 @Controller
 @RequestMapping("role")
@@ -32,7 +32,7 @@ public class RoleController {
      */
     @RequestMapping("/index")
     public String index(Model model) {
-        return "/role";
+        return "role";
     }
     /**
      * 通过主键查询单条数据

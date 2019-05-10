@@ -11,14 +11,14 @@ import lombok.Builder;
  * (Role)实体类
  *
  * @author makejava
- * @since 2019-05-01 15:17:57
+ * @since 2019-05-10 16:58:34
  */
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Role implements Serializable {
-    private static final long serialVersionUID = 503682440642321472L;
+    private static final long serialVersionUID = 470413282369081303L;
     /**角色ID*/
     private Long roleId;
     /**角色名称*/

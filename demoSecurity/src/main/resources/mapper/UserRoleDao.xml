@@ -3,9 +3,9 @@
 <mapper namespace="com.jin.demo.dao.UserRoleDao">
 
     <resultMap type="com.jin.demo.entity.UserRole" id="UserRoleMap">
-        <result property="id" column="id" jdbcType="LONG INTEGER"/>
-        <result property="userId" column="USER_ID" jdbcType="LONG INTEGER"/>
-        <result property="roleId" column="ROLE_ID" jdbcType="LONG INTEGER"/>
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="userId" column="USER_ID" jdbcType="BIGINT"/>
+        <result property="roleId" column="ROLE_ID" jdbcType="BIGINT"/>
     </resultMap>
     
 <sql id="Base_Column_List" >

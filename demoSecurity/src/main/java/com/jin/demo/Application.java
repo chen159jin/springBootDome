@@ -3,7 +3,7 @@ package com.jin.demo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-@MapperScan({"com.**.dao"})
+@MapperScan({"com.jin.demo.dao"})
 @SpringBootApplication
 public class Application {
 

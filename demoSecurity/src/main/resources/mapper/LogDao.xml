@@ -3,7 +3,7 @@
 <mapper namespace="com.jin.demo.dao.LogDao">
 
     <resultMap type="com.jin.demo.entity.Log" id="LogMap">
-        <result property="id" column="ID" jdbcType="LONG INTEGER"/>
+        <result property="id" column="ID" jdbcType="BIGINT"/>
         <result property="username" column="USERNAME" jdbcType="VARCHAR"/>
         <result property="operation" column="OPERATION" jdbcType="VARCHAR"/>
         <result property="time" column="TIME" jdbcType="NUMERIC"/>

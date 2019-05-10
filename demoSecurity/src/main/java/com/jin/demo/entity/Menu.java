@@ -11,14 +11,14 @@ import lombok.Builder;
  * (Menu)实体类
  *
  * @author makejava
- * @since 2019-05-01 15:17:57
+ * @since 2019-05-10 16:58:35
  */
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Menu implements Serializable {
-    private static final long serialVersionUID = 194477568996774415L;
+    private static final long serialVersionUID = -18145466470494915L;
     /**菜单/按钮ID*/
     private Long menuId;
     /**上级菜单ID*/
