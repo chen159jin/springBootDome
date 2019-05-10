@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2019-05-06 11:13:31
+Date: 2019-05-10 16:39:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -275,83 +275,85 @@ INSERT INTO `t_role` VALUES ('2', '注册用户', '注册用户', '2018-09-04 16
 -- ----------------------------
 DROP TABLE IF EXISTS `t_role_menu`;
 CREATE TABLE `t_role_menu` (
+                               `id` bigint(10) NOT NULL AUTO_INCREMENT,
                                `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID',
-                               `MENU_ID` bigint(20) NOT NULL COMMENT '菜单/按钮ID'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                               `MENU_ID` bigint(20) NOT NULL COMMENT '菜单/按钮ID',
+                               PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_role_menu
 -- ----------------------------
-INSERT INTO `t_role_menu` VALUES ('1', '59');
-INSERT INTO `t_role_menu` VALUES ('1', '2');
-INSERT INTO `t_role_menu` VALUES ('1', '3');
-INSERT INTO `t_role_menu` VALUES ('1', '67');
-INSERT INTO `t_role_menu` VALUES ('1', '1');
-INSERT INTO `t_role_menu` VALUES ('1', '4');
-INSERT INTO `t_role_menu` VALUES ('1', '5');
-INSERT INTO `t_role_menu` VALUES ('1', '6');
-INSERT INTO `t_role_menu` VALUES ('1', '20');
-INSERT INTO `t_role_menu` VALUES ('1', '21');
-INSERT INTO `t_role_menu` VALUES ('1', '22');
-INSERT INTO `t_role_menu` VALUES ('1', '10');
-INSERT INTO `t_role_menu` VALUES ('1', '8');
-INSERT INTO `t_role_menu` VALUES ('1', '58');
-INSERT INTO `t_role_menu` VALUES ('1', '66');
-INSERT INTO `t_role_menu` VALUES ('1', '11');
-INSERT INTO `t_role_menu` VALUES ('1', '12');
-INSERT INTO `t_role_menu` VALUES ('1', '64');
-INSERT INTO `t_role_menu` VALUES ('1', '13');
-INSERT INTO `t_role_menu` VALUES ('1', '14');
-INSERT INTO `t_role_menu` VALUES ('1', '65');
-INSERT INTO `t_role_menu` VALUES ('1', '15');
-INSERT INTO `t_role_menu` VALUES ('1', '16');
-INSERT INTO `t_role_menu` VALUES ('1', '17');
-INSERT INTO `t_role_menu` VALUES ('1', '18');
-INSERT INTO `t_role_menu` VALUES ('1', '23');
-INSERT INTO `t_role_menu` VALUES ('1', '81');
-INSERT INTO `t_role_menu` VALUES ('1', '82');
-INSERT INTO `t_role_menu` VALUES ('1', '83');
-INSERT INTO `t_role_menu` VALUES ('1', '19');
-INSERT INTO `t_role_menu` VALUES ('1', '24');
-INSERT INTO `t_role_menu` VALUES ('1', '61');
-INSERT INTO `t_role_menu` VALUES ('1', '101');
-INSERT INTO `t_role_menu` VALUES ('1', '102');
-INSERT INTO `t_role_menu` VALUES ('1', '103');
-INSERT INTO `t_role_menu` VALUES ('1', '104');
-INSERT INTO `t_role_menu` VALUES ('1', '105');
-INSERT INTO `t_role_menu` VALUES ('1', '106');
-INSERT INTO `t_role_menu` VALUES ('1', '107');
-INSERT INTO `t_role_menu` VALUES ('1', '108');
-INSERT INTO `t_role_menu` VALUES ('1', '109');
-INSERT INTO `t_role_menu` VALUES ('1', '110');
-INSERT INTO `t_role_menu` VALUES ('1', '113');
-INSERT INTO `t_role_menu` VALUES ('1', '114');
-INSERT INTO `t_role_menu` VALUES ('2', '1');
-INSERT INTO `t_role_menu` VALUES ('2', '3');
-INSERT INTO `t_role_menu` VALUES ('2', '4');
-INSERT INTO `t_role_menu` VALUES ('2', '2');
-INSERT INTO `t_role_menu` VALUES ('2', '8');
-INSERT INTO `t_role_menu` VALUES ('2', '11');
-INSERT INTO `t_role_menu` VALUES ('2', '14');
-INSERT INTO `t_role_menu` VALUES ('2', '5');
-INSERT INTO `t_role_menu` VALUES ('2', '17');
-INSERT INTO `t_role_menu` VALUES ('2', '6');
-INSERT INTO `t_role_menu` VALUES ('2', '20');
-INSERT INTO `t_role_menu` VALUES ('2', '64');
-INSERT INTO `t_role_menu` VALUES ('2', '65');
-INSERT INTO `t_role_menu` VALUES ('2', '10');
-INSERT INTO `t_role_menu` VALUES ('2', '113');
-INSERT INTO `t_role_menu` VALUES ('2', '114');
-INSERT INTO `t_role_menu` VALUES ('2', '58');
-INSERT INTO `t_role_menu` VALUES ('2', '59');
-INSERT INTO `t_role_menu` VALUES ('2', '61');
-INSERT INTO `t_role_menu` VALUES ('2', '81');
-INSERT INTO `t_role_menu` VALUES ('2', '82');
-INSERT INTO `t_role_menu` VALUES ('2', '83');
-INSERT INTO `t_role_menu` VALUES ('2', '101');
-INSERT INTO `t_role_menu` VALUES ('2', '102');
-INSERT INTO `t_role_menu` VALUES ('2', '103');
-INSERT INTO `t_role_menu` VALUES ('2', '109');
+INSERT INTO `t_role_menu` VALUES ('1', '1', '59');
+INSERT INTO `t_role_menu` VALUES ('2', '1', '2');
+INSERT INTO `t_role_menu` VALUES ('3', '1', '3');
+INSERT INTO `t_role_menu` VALUES ('4', '1', '67');
+INSERT INTO `t_role_menu` VALUES ('5', '1', '1');
+INSERT INTO `t_role_menu` VALUES ('6', '1', '4');
+INSERT INTO `t_role_menu` VALUES ('7', '1', '5');
+INSERT INTO `t_role_menu` VALUES ('8', '1', '6');
+INSERT INTO `t_role_menu` VALUES ('9', '1', '20');
+INSERT INTO `t_role_menu` VALUES ('10', '1', '21');
+INSERT INTO `t_role_menu` VALUES ('11', '1', '22');
+INSERT INTO `t_role_menu` VALUES ('12', '1', '10');
+INSERT INTO `t_role_menu` VALUES ('13', '1', '8');
+INSERT INTO `t_role_menu` VALUES ('14', '1', '58');
+INSERT INTO `t_role_menu` VALUES ('15', '1', '66');
+INSERT INTO `t_role_menu` VALUES ('16', '1', '11');
+INSERT INTO `t_role_menu` VALUES ('17', '1', '12');
+INSERT INTO `t_role_menu` VALUES ('18', '1', '64');
+INSERT INTO `t_role_menu` VALUES ('19', '1', '13');
+INSERT INTO `t_role_menu` VALUES ('20', '1', '14');
+INSERT INTO `t_role_menu` VALUES ('21', '1', '65');
+INSERT INTO `t_role_menu` VALUES ('22', '1', '15');
+INSERT INTO `t_role_menu` VALUES ('23', '1', '16');
+INSERT INTO `t_role_menu` VALUES ('24', '1', '17');
+INSERT INTO `t_role_menu` VALUES ('25', '1', '18');
+INSERT INTO `t_role_menu` VALUES ('26', '1', '23');
+INSERT INTO `t_role_menu` VALUES ('27', '1', '81');
+INSERT INTO `t_role_menu` VALUES ('28', '1', '82');
+INSERT INTO `t_role_menu` VALUES ('29', '1', '83');
+INSERT INTO `t_role_menu` VALUES ('30', '1', '19');
+INSERT INTO `t_role_menu` VALUES ('31', '1', '24');
+INSERT INTO `t_role_menu` VALUES ('32', '1', '61');
+INSERT INTO `t_role_menu` VALUES ('33', '1', '101');
+INSERT INTO `t_role_menu` VALUES ('34', '1', '102');
+INSERT INTO `t_role_menu` VALUES ('35', '1', '103');
+INSERT INTO `t_role_menu` VALUES ('36', '1', '104');
+INSERT INTO `t_role_menu` VALUES ('37', '1', '105');
+INSERT INTO `t_role_menu` VALUES ('38', '1', '106');
+INSERT INTO `t_role_menu` VALUES ('39', '1', '107');
+INSERT INTO `t_role_menu` VALUES ('40', '1', '108');
+INSERT INTO `t_role_menu` VALUES ('41', '1', '109');
+INSERT INTO `t_role_menu` VALUES ('42', '1', '110');
+INSERT INTO `t_role_menu` VALUES ('43', '1', '113');
+INSERT INTO `t_role_menu` VALUES ('44', '1', '114');
+INSERT INTO `t_role_menu` VALUES ('45', '2', '1');
+INSERT INTO `t_role_menu` VALUES ('46', '2', '3');
+INSERT INTO `t_role_menu` VALUES ('47', '2', '4');
+INSERT INTO `t_role_menu` VALUES ('48', '2', '2');
+INSERT INTO `t_role_menu` VALUES ('49', '2', '8');
+INSERT INTO `t_role_menu` VALUES ('50', '2', '11');
+INSERT INTO `t_role_menu` VALUES ('51', '2', '14');
+INSERT INTO `t_role_menu` VALUES ('52', '2', '5');
+INSERT INTO `t_role_menu` VALUES ('53', '2', '17');
+INSERT INTO `t_role_menu` VALUES ('54', '2', '6');
+INSERT INTO `t_role_menu` VALUES ('55', '2', '20');
+INSERT INTO `t_role_menu` VALUES ('56', '2', '64');
+INSERT INTO `t_role_menu` VALUES ('57', '2', '65');
+INSERT INTO `t_role_menu` VALUES ('58', '2', '10');
+INSERT INTO `t_role_menu` VALUES ('59', '2', '113');
+INSERT INTO `t_role_menu` VALUES ('60', '2', '114');
+INSERT INTO `t_role_menu` VALUES ('61', '2', '58');
+INSERT INTO `t_role_menu` VALUES ('62', '2', '59');
+INSERT INTO `t_role_menu` VALUES ('63', '2', '61');
+INSERT INTO `t_role_menu` VALUES ('64', '2', '81');
+INSERT INTO `t_role_menu` VALUES ('65', '2', '82');
+INSERT INTO `t_role_menu` VALUES ('66', '2', '83');
+INSERT INTO `t_role_menu` VALUES ('67', '2', '101');
+INSERT INTO `t_role_menu` VALUES ('68', '2', '102');
+INSERT INTO `t_role_menu` VALUES ('69', '2', '103');
+INSERT INTO `t_role_menu` VALUES ('70', '2', '109');
 
 -- ----------------------------
 -- Table structure for t_user
@@ -386,12 +388,14 @@ INSERT INTO `t_user` VALUES ('2', 'scott', '$2a$10$vtf0gsIpFnzs3x9kA/2fW.oV41aAX
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user_role`;
 CREATE TABLE `t_user_role` (
+                               `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                `USER_ID` bigint(20) NOT NULL COMMENT '用户ID',
-                               `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                               `ROLE_ID` bigint(20) NOT NULL COMMENT '角色ID',
+                               PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user_role
 -- ----------------------------
-INSERT INTO `t_user_role` VALUES ('1', '1');
-INSERT INTO `t_user_role` VALUES ('2', '2');
+INSERT INTO `t_user_role` VALUES ('1', '1', '1');
+INSERT INTO `t_user_role` VALUES ('2', '2', '2');
