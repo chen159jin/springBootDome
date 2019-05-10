@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
+    <springProperty name="appName" source="spring.application.name" scope="context" defaultValue="localhost"/>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-    <springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
-    <property name="LOG_HOME" value="/log/${spring.application.name}" />
+    <property name="LOG_HOME" value="/log/${appName}" />
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
