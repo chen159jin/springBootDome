@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <!--头部公用部分-->
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/xadmin.css">
+    <!--头部公用部分 end-->
+</head>
+<body>
+<div class="content-table account-details">
+
+    <div class="nav-btns  clearfix" >
+        <h3></h3>
+        <div id="btns" class="nav-btn">
+
+       </div>
+    </div>
+  
+    <!--数据表格-->
+    <div id="dataTable" lay-filter="table"></div>
+
+    <!--操作栏-->
+    <script type="text/html" id="bar">
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+</div>
+
+<!--脚本公用部分-->
+<script type="text/javascript" src="/lib/layui/layui.js"></script>
+<script type="text/javascript" src="/js/config.js"></script>
+<!--脚本公用部分 end-->
+
+
+<script type="text/javascript" th:inline="none">
+    /**
+     * @authors zhanhu
+     * @date    2018-10-11
+     * @version 2.0
+     */
+    layui.use(['jquery','ajax','table','laydate','form','laytpl','comSelect3'], function(){
+        var $ = layui.$,
+            laydate = layui.laydate,
+            ajax = layui.ajax,
+            table = layui.table,
+            form = layui.form,
+            laytpl = layui.laytpl;
+        ajax.isLoading = true;
+
+        //表格渲染
+        var tableIns =  table.render({
+            elem: '#dataTable',
+            url:'/menu/list',
+            height: 'full-200',
+            request: {
+                //传给后台的页数和条数
+                pageName: 'pageNum',
+                limitName: 'pageSize'
+            },
+            //状态
+            response: {
+                statusCode: 200,
+            },
+            //分页参数
+            page: {
+                limit:100,
+                theme:'mypage'
+            },
+            cols: [[
+                {type: 'checkbox',align:'center'},
+                {type:'numbers',align:'center',title:'序号'},
+		        {field:'menuId',  title: '菜单/按钮ID',align:'center'},
+		        {field:'parentId',  title: '上级菜单ID',align:'center'},
+		        {field:'menuName',  title: '菜单/按钮名称',align:'center'},
+		        {field:'url',  title: '菜单URL',align:'center'},
+		        {field:'perms',  title: '权限标识',align:'center'},
+		        {field:'icon',  title: '图标',align:'center'},
+		        {field:'type',  title: '类型 0菜单 1按钮',align:'center'},
+		        {field:'orderNum',  title: '排序',align:'center'},
+		        {field:'createTime',  title: '创建时间',align:'center'},
+		        {field:'modifyTime',  title: '修改时间',align:'center'},
+                {field:'remark', title: '备注',align:'center',templet:function(remarkRow){
+                        if(remarkRow.remark && remarkRow.remark.length > 0){
+                            return "<span style='color:red'>"+remarkRow.remark+"</span>";
+                        }else{
+                            return "";
+                        }
+                    }},
+                {fixed: 'right', title:'操作', toolbar: '#bar',align:'center'}
+            ]]
+
+
+        });
+        //表单提交
+        form.on('submit(formDemo)', function(data){
+            console.log(data.field);
+            tableIns.reload({
+                where: data.field
+                ,page: {
+                    curr: 1, //重新从第 1 页开始
+                    theme:'mypage'
+                }
+            });
+            return false;
+        });
+        //监听行工具事件
+        table.on('tool(table)', function(obj){
+            var data = obj.data;
+            if(layEvent === 'detail'){
+      layer.msg('查看操作');
+    } else if(layEvent === 'del'){
+      layer.confirm('真的删除行么', function(index){
+        obj.del(); //删除对应行（tr）的DOM结构
+        layer.close(index);
+        //向服务端发送删除指令
+      });
+    } else if(layEvent === 'edit'){
+      layer.msg('编辑操作');
+    }
+        });
+    })
+</script>
+</body>
+</html>

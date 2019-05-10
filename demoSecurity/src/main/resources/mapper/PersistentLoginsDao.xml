@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jin.demo.dao.PersistentLoginsDao">
+
+    <resultMap type="com.jin.demo.entity.PersistentLogins" id="PersistentLoginsMap">
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="series" column="series" jdbcType="VARCHAR"/>
+        <result property="token" column="token" jdbcType="VARCHAR"/>
+        <result property="lastUsed" column="last_used" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+<sql id="Base_Column_List" >
+        username , series , token , last_used         
+</sql>
+    <!--查询单个-->
+    <select id="queryById" resultMap="PersistentLoginsMap">
+        select  <include refid="Base_Column_List" />
+        from jin.persistent_logins
+        where series = #{series}
+    </select>
+
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="PersistentLoginsMap">
+        select  <include refid="Base_Column_List" />
+        from jin.persistent_logins
+        <where>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="series != null and series != ''">
+                and series = #{series}
+            </if>
+            <if test="token != null and token != ''">
+                and token = #{token}
+            </if>
+            <if test="lastUsed != null">
+                and last_used = #{lastUsed}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="series" useGeneratedKeys="true">
+        insert into jin.persistent_logins(username, token, last_used)
+        values (#{username}, #{token}, #{lastUsed})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jin.persistent_logins
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="token != null and token != ''">
+                token = #{token},
+            </if>
+            <if test="lastUsed != null">
+                last_used = #{lastUsed},
+            </if>
+        </set>
+        where series = #{series}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jin.persistent_logins where series = #{series}
+    </delete>
+
+</mapper>
