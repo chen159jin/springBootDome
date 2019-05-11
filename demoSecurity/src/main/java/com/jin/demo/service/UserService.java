@@ -52,4 +52,5 @@ public interface UserService {
     boolean deleteById(Long userId);
 
 
+    User findUserByUsername(String userName);
 }
