@@ -15,7 +15,7 @@ public interface RoleMenuService {
     /**
      * 通过ID查询单条数据
      *
-     * @param 主键
+     * @param id  主键
      * @return 实例对象
      */
     RoleMenu queryById(Long id);
