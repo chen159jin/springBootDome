@@ -10,14 +10,16 @@ import lombok.Builder;
  * (RoleMenu)实体类
  *
  * @author makejava
- * @since 2019-05-01 15:17:58
+ * @since 2019-05-11 10:11:19
  */
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class RoleMenu implements Serializable {
-    private static final long serialVersionUID = -44878138208108845L;
+    private static final long serialVersionUID = -67182510592025490L;
+    
+    private Long id;
     /**角色ID*/
     private Long roleId;
     /**菜单/按钮ID*/

@@ -7,17 +7,17 @@ import java.util.List;
  * (UserRole)表服务接口
  *
  * @author makejava
- * @since 2019-05-01 15:17:58
+ * @since 2019-05-11 10:11:09
  */
 public interface UserRoleService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param  主键
+     * @param id 主键
      * @return 实例对象
      */
-    UserRole queryById(Long id );
+    UserRole queryById(Long id);
 
     /**
      * 通过实体作为筛选条件查询
@@ -46,9 +46,9 @@ public interface UserRoleService {
     /**
      * 通过主键删除数据
      *
-     * @param  主键
+     * @param id 主键
      * @return 是否成功
      */
-    boolean deleteById( );
+    boolean deleteById(Long id);
 
 }

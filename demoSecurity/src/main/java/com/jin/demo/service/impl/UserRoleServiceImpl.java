@@ -14,7 +14,7 @@ import java.util.List;
  * (UserRole)表服务实现类
  *
  * @author makejava
- * @since 2019-05-01 15:17:58
+ * @since 2019-05-11 10:11:09
  */
 @Service("userRoleService")
 public class UserRoleServiceImpl implements UserRoleService {
@@ -26,11 +26,11 @@ public class UserRoleServiceImpl implements UserRoleService {
     /**
      * 通过ID查询单条数据
      *
-     * @param  主键
+     * @param id 主键
      * @return 实例对象
      */
     @Override
-    public UserRole queryById(Long id ) {
+    public UserRole queryById(Long id) {
         return this.userRoleDao.queryById(id);
     }
 
@@ -66,17 +66,17 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Override
     public UserRole update(UserRole userRole) {
         this.userRoleDao.update(userRole);
-        return this.queryById(userRole.get());
+        return this.queryById(userRole.getId());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param  主键
+     * @param id 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById( ) {
-        return this.userRoleDao.deleteById() > 0;
+    public boolean deleteById(Long id) {
+        return this.userRoleDao.deleteById(id) > 0;
     }
 }

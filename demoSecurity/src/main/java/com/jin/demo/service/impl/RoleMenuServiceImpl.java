@@ -14,7 +14,7 @@ import java.util.List;
  * (RoleMenu)表服务实现类
  *
  * @author makejava
- * @since 2019-05-01 15:17:58
+ * @since 2019-05-11 10:11:19
  */
 @Service("roleMenuService")
 public class RoleMenuServiceImpl implements RoleMenuService {
@@ -26,12 +26,12 @@ public class RoleMenuServiceImpl implements RoleMenuService {
     /**
      * 通过ID查询单条数据
      *
-     * @param  主键
+     * @param id 主键
      * @return 实例对象
      */
     @Override
-    public RoleMenu queryById( ) {
-        return this.roleMenuDao.queryById();
+    public RoleMenu queryById(Long id) {
+        return this.roleMenuDao.queryById(id);
     }
 
      /**
@@ -66,17 +66,17 @@ public class RoleMenuServiceImpl implements RoleMenuService {
     @Override
     public RoleMenu update(RoleMenu roleMenu) {
         this.roleMenuDao.update(roleMenu);
-        return this.queryById(roleMenu.get());
+        return this.queryById(roleMenu.getId());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param  主键
+     * @param id 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById( ) {
-        return this.roleMenuDao.deleteById() > 0;
+    public boolean deleteById(Long id) {
+        return this.roleMenuDao.deleteById(id) > 0;
     }
 }

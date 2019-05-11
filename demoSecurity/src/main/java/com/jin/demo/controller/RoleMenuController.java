@@ -15,7 +15,7 @@ import java.util.List;
  * (RoleMenu)表控制层
  *
  * @author makejava
- * @since 2019-05-01 15:17:58
+ * @since 2019-05-11 10:11:19
  */
 @Controller
 @RequestMapping("roleMenu")
@@ -32,7 +32,7 @@ public class RoleMenuController {
      */
     @RequestMapping("/index")
     public String index(Model model) {
-        return "/roleMenu";
+        return "roleMenu";
     }
     /**
      * 通过主键查询单条数据
