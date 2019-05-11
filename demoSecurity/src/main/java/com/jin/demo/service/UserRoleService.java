@@ -17,7 +17,7 @@ public interface UserRoleService {
      * @param  主键
      * @return 实例对象
      */
-    UserRole queryById( );
+    UserRole queryById(Long id );
 
     /**
      * 通过实体作为筛选条件查询

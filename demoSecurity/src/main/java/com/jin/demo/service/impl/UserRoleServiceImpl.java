@@ -30,8 +30,8 @@ public class UserRoleServiceImpl implements UserRoleService {
      * @return 实例对象
      */
     @Override
-    public UserRole queryById( ) {
-        return this.userRoleDao.queryById();
+    public UserRole queryById(Long id ) {
+        return this.userRoleDao.queryById(id);
     }
 
      /**

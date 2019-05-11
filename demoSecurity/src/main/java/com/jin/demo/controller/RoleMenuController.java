@@ -42,7 +42,7 @@ public class RoleMenuController {
      */
     @GetMapping("selectOne")
     @ResponseBody
-    public RoleMenu selectOne( id) {
+    public RoleMenu selectOne(Long id) {
         return this.roleMenuService.queryById(id);
     }
 

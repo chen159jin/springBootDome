@@ -42,7 +42,7 @@ public class UserRoleController {
      */
     @GetMapping("selectOne")
     @ResponseBody
-    public UserRole selectOne( id) {
+    public UserRole selectOne(Long id) {
         return this.userRoleService.queryById(id);
     }
 
