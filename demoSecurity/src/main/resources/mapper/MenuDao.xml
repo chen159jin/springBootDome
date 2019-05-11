@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jin.demo.dao.MenuDao">
+
+    <resultMap type="com.jin.demo.entity.Menu" id="MenuMap">
+        <result property="menuId" column="MENU_ID" jdbcType="LONG INTEGER"/>
+        <result property="parentId" column="PARENT_ID" jdbcType="LONG INTEGER"/>
+        <result property="menuName" column="MENU_NAME" jdbcType="VARCHAR"/>
+        <result property="url" column="URL" jdbcType="VARCHAR"/>
+        <result property="perms" column="PERMS" jdbcType="VARCHAR"/>
+        <result property="icon" column="ICON" jdbcType="VARCHAR"/>
+        <result property="type" column="TYPE" jdbcType="VARCHAR"/>
+        <result property="orderNum" column="ORDER_NUM" jdbcType="LONG INTEGER"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+<sql id="Base_Column_List" >
+        MENU_ID , PARENT_ID , MENU_NAME , URL , PERMS , ICON , TYPE , ORDER_NUM , CREATE_TIME , MODIFY_TIME         
+</sql>
+    <!--查询单个-->
+    <select id="queryById" resultMap="MenuMap">
+        select  <include refid="Base_Column_List" />
+        from jin.t_menu
+        where MENU_ID = #{menuId}
+    </select>
+
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="MenuMap">
+        select  <include refid="Base_Column_List" />
+        from jin.t_menu
+        <where>
+            <if test="menuId != null">
+                and MENU_ID = #{menuId}
+            </if>
+            <if test="parentId != null">
+                and PARENT_ID = #{parentId}
+            </if>
+            <if test="menuName != null and menuName != ''">
+                and MENU_NAME = #{menuName}
+            </if>
+            <if test="url != null and url != ''">
+                and URL = #{url}
+            </if>
+            <if test="perms != null and perms != ''">
+                and PERMS = #{perms}
+            </if>
+            <if test="icon != null and icon != ''">
+                and ICON = #{icon}
+            </if>
+            <if test="type != null and type != ''">
+                and TYPE = #{type}
+            </if>
+            <if test="orderNum != null">
+                and ORDER_NUM = #{orderNum}
+            </if>
+            <if test="createTime != null">
+                and CREATE_TIME = #{createTime}
+            </if>
+            <if test="modifyTime != null">
+                and MODIFY_TIME = #{modifyTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="menuId" useGeneratedKeys="true">
+        insert into jin.t_menu(PARENT_ID, MENU_NAME, URL, PERMS, ICON, TYPE, ORDER_NUM, CREATE_TIME, MODIFY_TIME)
+        values (#{parentId}, #{menuName}, #{url}, #{perms}, #{icon}, #{type}, #{orderNum}, #{createTime}, #{modifyTime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jin.t_menu
+        <set>
+            <if test="parentId != null">
+                PARENT_ID = #{parentId},
+            </if>
+            <if test="menuName != null and menuName != ''">
+                MENU_NAME = #{menuName},
+            </if>
+            <if test="url != null and url != ''">
+                URL = #{url},
+            </if>
+            <if test="perms != null and perms != ''">
+                PERMS = #{perms},
+            </if>
+            <if test="icon != null and icon != ''">
+                ICON = #{icon},
+            </if>
+            <if test="type != null and type != ''">
+                TYPE = #{type},
+            </if>
+            <if test="orderNum != null">
+                ORDER_NUM = #{orderNum},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime},
+            </if>
+            <if test="modifyTime != null">
+                MODIFY_TIME = #{modifyTime},
+            </if>
+        </set>
+        where MENU_ID = #{menuId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jin.t_menu where MENU_ID = #{menuId}
+    </delete>
+
+</mapper>

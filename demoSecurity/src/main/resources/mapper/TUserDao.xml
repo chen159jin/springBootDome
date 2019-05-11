@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jin.demo.dao.TUserDao">
+
+    <resultMap type="com.jin.demo.entity.TUser" id="TUserMap">
+        <result property="userId" column="USER_ID" jdbcType="LONG INTEGER"/>
+        <result property="username" column="USERNAME" jdbcType="VARCHAR"/>
+        <result property="password" column="PASSWORD" jdbcType="VARCHAR"/>
+        <result property="deptId" column="DEPT_ID" jdbcType="LONG INTEGER"/>
+        <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+        <result property="mobile" column="MOBILE" jdbcType="VARCHAR"/>
+        <result property="status" column="STATUS" jdbcType="VARCHAR"/>
+        <result property="crateTime" column="CRATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP"/>
+        <result property="lastLoginTime" column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP"/>
+        <result property="ssex" column="SSEX" jdbcType="VARCHAR"/>
+        <result property="theme" column="THEME" jdbcType="VARCHAR"/>
+        <result property="avatar" column="AVATAR" jdbcType="VARCHAR"/>
+        <result property="description" column="DESCRIPTION" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TUserMap">
+        select
+          'USER_ID', 'USERNAME', 'PASSWORD', 'DEPT_ID', 'EMAIL', 'MOBILE', 'STATUS', 'CRATE_TIME', 'MODIFY_TIME', 'LAST_LOGIN_TIME', 'SSEX', 'THEME', 'AVATAR', 'DESCRIPTION'
+        from jin.t_user
+        where USER_ID = #{userId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TUserMap">
+        select
+          'USER_ID', 'USERNAME', 'PASSWORD', 'DEPT_ID', 'EMAIL', 'MOBILE', 'STATUS', 'CRATE_TIME', 'MODIFY_TIME', 'LAST_LOGIN_TIME', 'SSEX', 'THEME', 'AVATAR', 'DESCRIPTION'
+        from jin.t_user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TUserMap">
+        select
+          'USER_ID', 'USERNAME', 'PASSWORD', 'DEPT_ID', 'EMAIL', 'MOBILE', 'STATUS', 'CRATE_TIME', 'MODIFY_TIME', 'LAST_LOGIN_TIME', 'SSEX', 'THEME', 'AVATAR', 'DESCRIPTION'
+        from jin.t_user
+        <where>
+            <if test="userId != null">
+                and USER_ID = #{userId}
+            </if>
+            <if test="username != null and username != ''">
+                and USERNAME = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and PASSWORD = #{password}
+            </if>
+            <if test="deptId != null">
+                and DEPT_ID = #{deptId}
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL = #{email}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and MOBILE = #{mobile}
+            </if>
+            <if test="status != null and status != ''">
+                and STATUS = #{status}
+            </if>
+            <if test="crateTime != null">
+                and CRATE_TIME = #{crateTime}
+            </if>
+            <if test="modifyTime != null">
+                and MODIFY_TIME = #{modifyTime}
+            </if>
+            <if test="lastLoginTime != null">
+                and LAST_LOGIN_TIME = #{lastLoginTime}
+            </if>
+            <if test="ssex != null and ssex != ''">
+                and SSEX = #{ssex}
+            </if>
+            <if test="theme != null and theme != ''">
+                and THEME = #{theme}
+            </if>
+            <if test="avatar != null and avatar != ''">
+                and AVATAR = #{avatar}
+            </if>
+            <if test="description != null and description != ''">
+                and DESCRIPTION = #{description}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="userId" useGeneratedKeys="true">
+        insert into jin.t_user(USERNAME, PASSWORD, DEPT_ID, EMAIL, MOBILE, STATUS, CRATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, THEME, AVATAR, DESCRIPTION)
+        values (#{username}, #{password}, #{deptId}, #{email}, #{mobile}, #{status}, #{crateTime}, #{modifyTime}, #{lastLoginTime}, #{ssex}, #{theme}, #{avatar}, #{description})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jin.t_user
+        <set>
+            <if test="username != null and username != ''">
+                USERNAME = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                PASSWORD = #{password},
+            </if>
+            <if test="deptId != null">
+                DEPT_ID = #{deptId},
+            </if>
+            <if test="email != null and email != ''">
+                EMAIL = #{email},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                MOBILE = #{mobile},
+            </if>
+            <if test="status != null and status != ''">
+                STATUS = #{status},
+            </if>
+            <if test="crateTime != null">
+                CRATE_TIME = #{crateTime},
+            </if>
+            <if test="modifyTime != null">
+                MODIFY_TIME = #{modifyTime},
+            </if>
+            <if test="lastLoginTime != null">
+                LAST_LOGIN_TIME = #{lastLoginTime},
+            </if>
+            <if test="ssex != null and ssex != ''">
+                SSEX = #{ssex},
+            </if>
+            <if test="theme != null and theme != ''">
+                THEME = #{theme},
+            </if>
+            <if test="avatar != null and avatar != ''">
+                AVATAR = #{avatar},
+            </if>
+            <if test="description != null and description != ''">
+                DESCRIPTION = #{description},
+            </if>
+        </set>
+        where USER_ID = #{userId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jin.t_user where USER_ID = #{userId}
+    </delete>
+
+</mapper>
