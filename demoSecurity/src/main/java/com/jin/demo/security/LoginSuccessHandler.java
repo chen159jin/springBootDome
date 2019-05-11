@@ -15,13 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
+/**登陆成功后处理类
+ * @author Jin
+ * @Title: LoginSuccessHandler
+ * @ProjectName
+ * @Description: TODO
+ * @date 2019/5/11/0119:57
+ */
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-    /** org.slf4j.Logger 日志 */
+    /**
+     * org.slf4j.Logger 日志
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginSuccessHandler.class);
     @Autowired
     private UserService userService;
-
-
 
 
     @Override
@@ -29,14 +36,14 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
                                         HttpServletResponse response, Authentication authentication) throws IOException,
             ServletException {
         //获得授权后可得到用户信息   可使用SUserService进行数据库操作
-        UserDetails userDetails = (UserDetails)authentication.getPrincipal();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
         //修改用户登录时间
         String username = userDetails.getUsername();
         User user = userService.findUserByUsername(username);
         userService.update(User.builder().userId(user.getUserId()).lastLoginTime(new Date()).build());
         //输出登录提示信息
-        LOGGER.info("用户：{}登陆成功，ip为：{}", userDetails.getUsername(),getIpAddress(request));
+        LOGGER.info("用户：{}登陆成功，ip为：{}", userDetails.getUsername(), getIpAddress(request));
         super.onAuthenticationSuccess(request, response, authentication);
     }
 
@@ -60,4 +67,4 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         return ip;
     }
 
-    }
+}

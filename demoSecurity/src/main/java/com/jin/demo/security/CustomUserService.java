@@ -26,7 +26,7 @@ import java.util.Set;
  * @author jin
  * @Title: CustomUserService
  * @ProjectName demo
- * @Description: TODO
+ * @Description: 获取登陆用户信息
  * @date 2019/4/2715:37
  */
 @Service

@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author jin
  * @Title: config
  * @ProjectName demo
- * @Description: TODO
+ * @Description: 安全框架配置文件
  * @date 2019/4/2714:15
  */
 @Configuration
@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CustomUserService customUserService;
 
     @Override
-    public void configure(WebSecurity web){
+    public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/js/**", "/login", "/css/**", "/**/favicon.ico", "/img/**", "/images/**", "/lib/**", "/error");
     }
 
